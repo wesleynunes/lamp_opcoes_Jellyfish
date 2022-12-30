@@ -46,8 +46,7 @@ then
     sudo apt-get -y install apache2
     sudo ufw app list
     sudo ufw allow 'Apache'
-    sudo ufw status
-    sudo systemctl status apache2
+    sudo ufw status    
     echo "--- Fim da intalação apache ---"  
 
 elif [ "$programas" = "3" ];
