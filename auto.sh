@@ -57,6 +57,7 @@ then
     sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $senha"
 	sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $senha"
     sudo apt-get -y install mysql-server   
+    sudo service mysql restart
     echo "--- Fim da instalação MySQL ---"   
 
 elif [ "$programas" = "4" ];
@@ -108,7 +109,7 @@ then
 
     echo "Reniciando Apache"
     sleep 3
-    sudo apt install yarn
+    sudo apt-get -y install yarn
     sudo apt-get -y install nodejs
     sudo apt-get -y install npm
     sudo apt-get -y install redis-server
@@ -116,7 +117,7 @@ then
     sudo systemctl restart redis.service
     sudo /etc/init.d/apache2 restart
 
-    echo "--- Fim da instalação PHP 7 ---" 
+    echo "--- Fim da instalação PHP 8 ---" 
     php -v
 
 elif [ "$programas" = "6" ];
@@ -146,7 +147,6 @@ then
     echo $HASH
     php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
     sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-    composer
    echo "Fim da instalação composer" 
 
 elif [ "$programas" = "9" ];
@@ -203,6 +203,7 @@ then
    echo "Reniciando Apache"
    sleep 3 
    sudo /etc/init.d/apache2 restart
+   php -v
 fi
 
 ####LOOP E VOLTA AO MENU#####
