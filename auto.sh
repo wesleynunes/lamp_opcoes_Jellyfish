@@ -44,6 +44,10 @@ then
     echo "--- Iniciando Instalação apache ---"
     sleep 3
     sudo apt-get -y install apache2
+    sudo ufw app list
+    sudo ufw allow 'Apache'
+    sudo ufw status
+    sudo systemctl status apache2
     echo "--- Fim da intalação apache ---"  
 
 elif [ "$programas" = "3" ];
