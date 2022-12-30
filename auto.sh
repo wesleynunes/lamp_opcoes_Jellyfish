@@ -32,6 +32,7 @@ if [ "$programas" = "1" ];
 then 
     echo "--- Iniciando update ---"
     sleep 3
+    sudo su root
 	sudo apt-get update 
 
     echo "--- Iniciando upgrade ---"
@@ -152,7 +153,7 @@ then
 elif [ "$programas" = "9" ];
 then 
     echo "instalação e configuracao do host do laravel"    
-    sleep 3 
+    sleep 3    
     read -p "Entre com o nome do projeto::" project
     read -p "Entre com a versao do projeto exemplo 6.* ::" version
     read -p "Entre com seu email para server admin ::" serveradmin
