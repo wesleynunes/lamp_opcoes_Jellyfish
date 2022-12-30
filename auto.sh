@@ -32,7 +32,7 @@ if [ "$programas" = "1" ];
 then 
     echo "--- Iniciando update ---"
     sleep 3
-    sudo su root && sudo apt-get update 
+    sudo apt-get update 
 
     echo "--- Iniciando upgrade ---"
     sleep 3
